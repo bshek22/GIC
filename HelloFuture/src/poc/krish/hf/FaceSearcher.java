@@ -1,8 +1,5 @@
 package poc.krish.hf;
 
-//import java.io.File;
-//import java.io.FileInputStream;
-//import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
 
@@ -10,12 +7,10 @@ import com.amazonaws.services.rekognition.AmazonRekognition;
 import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
 import com.amazonaws.services.rekognition.model.AmazonRekognitionException;
 import com.amazonaws.services.rekognition.model.Face;
-//import com.fasterxml.jackson.databind.ObjectMapper;
 import com.amazonaws.services.rekognition.model.FaceMatch;
 import com.amazonaws.services.rekognition.model.Image;
 import com.amazonaws.services.rekognition.model.SearchFacesByImageRequest;
 import com.amazonaws.services.rekognition.model.SearchFacesByImageResult;
-//import com.amazonaws.util.IOUtils;
 
 
 public class FaceSearcher {
@@ -56,8 +51,8 @@ public class FaceSearcher {
 	
 	public String matchFaceImage(ByteBuffer imageBytes) {
 
-        //AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
-        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().build();
+        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
+        //AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().build();
         SearchFacesByImageRequest searchFacesByImageRequest;
         SearchFacesByImageResult searchFacesByImageResult = null;
 
