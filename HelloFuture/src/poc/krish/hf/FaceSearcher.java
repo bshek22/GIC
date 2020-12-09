@@ -51,8 +51,8 @@ public class FaceSearcher {
 	
 	public String matchFaceImage(ByteBuffer imageBytes) {
 
-        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
-        //AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().build();
+        //AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
+        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().build();
         SearchFacesByImageRequest searchFacesByImageRequest;
         SearchFacesByImageResult searchFacesByImageResult = null;
 

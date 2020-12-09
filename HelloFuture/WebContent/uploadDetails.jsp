@@ -1,21 +1,69 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Welcome to Future Bank</title>
+<link rel="shortcut icon" href="MyBankLogo.png" />
+<link rel="stylesheet" href="./styles/style1.css">
+<title>Registration</title>
 </head>
 <body>
-<h1>Welcome to the future Banking</h1>
-	<form action="uploadUserDetails" method="post" enctype="multipart/form-data">
-		Upload photo to Register:
-		<br/><br/>
-		<input type="file" id="uploadPhoto" name="inputPhoto" /> 
-		<br/><br/>
-		<label for="fname">Full name:</label><br/>
-	  	<input type="text" id="fname" name="fname"><br><br>
-		<input type="submit" value="Upload" />	
-	</form>
+
+	<div class="testbox">
+		<form action="uploadUserDetails" method="post"
+			enctype="multipart/form-data">
+			<div class="site-logo">
+				<img src="MyBankLogo.png" alt="logo">
+			</div>
+
+			<p class="top-info">Thank you for your showing interest in our
+				bank</p>
+			<p class="top-info">We hope we can serve you better</p>
+			<div class="item">
+				<p>
+					Full Name<span class="required">*</span>
+				</p>
+				<div class="name-item">
+					<input type="text" id="fname" name="fname" placeholder="Full Name"
+						required />
+				</div>
+			</div>
+			<div class="contact-item">
+				<div class="item">
+					<p>
+						Email<span class="required">*</span>
+					</p>
+					<input type="text" name="name" placeholder="email id" required />
+				</div>
+			</div>
+			<div class="contact-item">
+				<div class="item">
+					<p>
+						Phone<span class="required">*</span>
+					</p>
+					<input type="text" name="name" placeholder="phone number" required />
+				</div>
+			</div>
+			<div class="position-item">
+				<div class="item">
+					<p>
+						Date of Birth<span class="required">*</span>
+					</p>
+					<input type="date" name="bdate" required /> <i
+						class="fas fa-calendar-alt"></i>
+				</div>
+			</div>
+			<div class="position-item">
+				<div class="item">
+					<p>Upload your Picture:</p>
+					<input type="file" name="inputPhoto" accept="image">
+				</div>
+			</div>
+			<div class="btn-block">
+				<button type="submit">Submit Details</button>
+			</div>
+
+		</form>
+	</div>
 </body>
 </html>

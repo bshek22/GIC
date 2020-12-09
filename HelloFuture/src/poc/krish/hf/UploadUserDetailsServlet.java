@@ -36,7 +36,7 @@ public class UploadUserDetailsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		String s3response;
 		Part filePart = request.getPart("inputPhoto");
 		String fileName=getFileName(filePart);
@@ -53,7 +53,7 @@ public class UploadUserDetailsServlet extends HttpServlet {
 			response.setContentType("text/html");
 			writer.println("<!DOCTYPE html>" +
 					"<html>\n" +
-					"<head><title>Welcome</title></head>\n"+
+					"<head><title>Success</title></head>\n"+
 					"<body>\n" +
 					"<h1>" + s3response + "</h1>\n" +
 					"</body>\n" + 

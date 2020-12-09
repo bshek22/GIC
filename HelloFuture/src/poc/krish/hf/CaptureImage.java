@@ -3,6 +3,8 @@ package poc.krish.hf;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.regions.Regions;
+import com.amazonaws.services.rekognition.AmazonRekognition;
+import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.ObjectMetadata;
@@ -56,9 +58,10 @@ public class CaptureImage {
 		Regions clientRegion = Regions.DEFAULT_REGION;
         String bucketName = "imageuploadandprocessings3bucket";
         String fileObjKeyName = "index/"+fileName;
-        String response="Failed";
+        String response="Registration Failed";
         try {
-        	AmazonS3 s3Client=AmazonS3ClientBuilder.defaultClient();
+        	//AmazonS3 s3Client=AmazonS3ClientBuilder.defaultClient();
+        	AmazonS3 s3Client = AmazonS3ClientBuilder.standard().build();
         	ObjectMetadata metadata = new ObjectMetadata();
         	metadata.addUserMetadata("fullname", fullName);
         	metadata.setContentType("image/jpg");
@@ -67,7 +70,7 @@ public class CaptureImage {
             PutObjectResult por=s3Client.putObject(request);
             if(por!=null) {
             	System.out.println("Success");
-            	response="Success";
+            	response="Registration Successful";
             }
         } catch (AmazonServiceException e) {
             // The call was transmitted successfully, but Amazon S3 couldn't process 

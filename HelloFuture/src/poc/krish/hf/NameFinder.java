@@ -39,8 +39,8 @@ public class NameFinder {
 	}*/
 	
 	public String lookupName(String faceId) {
-		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
-		//AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(new EnvironmentVariableCredentialsProvider()).build();
+		//AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
+		AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
 
 		DynamoDB dynamoDB = new DynamoDB(client);
 

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import com.amazonaws.util.IOUtils;
-
+import java.util.Base64;
 /**
  * Servlet implementation class FutureServlet
  */
@@ -35,12 +35,18 @@ public class FutureServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    Part filePart = request.getPart("inputPhoto");
-	    InputStream inputStream = filePart.getInputStream();	    
-	    ByteBuffer imageBytes = ByteBuffer.wrap(IOUtils.toByteArray(inputStream));
+	    //Part filePart = request.getPart("inputPhoto");
+	    //InputStream inputStream = filePart.getInputStream();	    
+	    //ByteBuffer imageBytes = ByteBuffer.wrap(IOUtils.toByteArray(inputStream));
+	    
+	    String data = request.getParameter("imageData");
+        //System.out.println("imageData: " + data);
+        data = data.substring(data.indexOf(",") + 1);
+        byte[] bytes = Base64.getDecoder().decode(data);
 	    
 		FaceSearcher fs = new FaceSearcher();
-		String faceId = fs.matchFaceImage(imageBytes);
+		//String faceId = fs.matchFaceImage(imageBytes);
+		String faceId = fs.matchFaceImage(ByteBuffer.wrap(bytes));
 		
 		PrintWriter writer = response.getWriter();
 
@@ -55,7 +61,7 @@ public class FutureServlet extends HttpServlet {
 				response.setContentType("text/html");
 				writer.println("<!DOCTYPE html>" +
 						"<html>\n" +
-						"<head><title>Welcome</title></head>\n"+
+						"<head><title>Home</title></head>\n"+
 						"<body>\n" +
 						"<h1>Hello " + name + "</h1>\n" +
 						"</body>\n" + 
