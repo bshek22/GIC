@@ -4,6 +4,7 @@
 <html>
 
 <head>
+<link rel="shortcut icon" href="image/logo.png" />
 <meta charset="UTF-8">
 <title>BankTeller</title>
 <meta name="author" content="lafranch">
