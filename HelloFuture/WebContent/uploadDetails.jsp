@@ -60,11 +60,11 @@
 						</div>
 						<div class="udmi-item">
 							<label>Email<span class="required">*</span></label>
-							<input type="text" name="name" placeholder="email id" required />
+							<input type="email" name="name" placeholder="email id" required />
 						</div>
 						<div class="udmi-item">
 							<label>SSN<span class="required">*</span></label>
-							<input type="text" id="phoneNumber" name="phoneNumber" placeholder="ssn - last 4 digits" required />
+							<input type="text" id="phoneNumber" name="phoneNumber" placeholder="last 4 digits" required />
 						</div>
 						<div class="udmi-item">
 							<label>Date of Birth<span class="required">*</span></label>

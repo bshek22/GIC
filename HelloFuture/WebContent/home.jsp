@@ -27,8 +27,7 @@
 			</div>
 			<div class="udmi-area">
 				<div class="audio-control-main">
-					<!-- <h2>Hello <%=request.getAttribute("userName")%></h2>-->
-					<h2>Hello Bijoy Biswas</h2>					
+					 <h2>Hello <%=request.getAttribute("userName")%></h2>					
 					<div class="audio-control">
 					    <div id="audio-control" class="white-circle">
 					        <img src="image/lex.png">

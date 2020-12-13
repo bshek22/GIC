@@ -16,7 +16,7 @@
 	<div class="upload-details-main">
 		<div class="upload-details-main-inn">
 			<div class="udmi-logo">
-				<img src="images/logo.png" alt="logo">
+				<img src="image/logo.png" alt="logo">
 			</div>
 			<div class="udmi-area">
 				<div class="reg-suc">
