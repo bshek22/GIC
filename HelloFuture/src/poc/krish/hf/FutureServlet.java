@@ -16,6 +16,7 @@ import javax.servlet.RequestDispatcher;
 
 import com.amazonaws.util.IOUtils;
 import java.util.Base64;
+
 /**
  * Servlet implementation class FutureServlet
  */
@@ -23,67 +24,49 @@ import java.util.Base64;
 @MultipartConfig
 public class FutureServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public FutureServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    //Part filePart = request.getPart("inputPhoto");
-	    //InputStream inputStream = filePart.getInputStream();	    
-	    //ByteBuffer imageBytes = ByteBuffer.wrap(IOUtils.toByteArray(inputStream));
-	    
-	    String data = request.getParameter("imageData");
-        System.out.println("imageData: " + data);
-        data = data.substring(data.indexOf(",") + 1);
-        byte[] bytes = Base64.getDecoder().decode(data);
-        System.out.println("imageData: " + data);
-		FaceSearcher fs = new FaceSearcher();
-		//String faceId = fs.matchFaceImage(imageBytes);
-		String faceId = fs.matchFaceImage(ByteBuffer.wrap(bytes));
-		
-		PrintWriter writer = response.getWriter();
+	public FutureServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-		//writer.println(faceId);
-		
-		if (faceId != null) {		
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String data = request.getParameter("imageData");
+		System.out.println("imageData: " + data);
+		data = data.substring(data.indexOf(",") + 1);
+		byte[] bytes = Base64.getDecoder().decode(data);
+		System.out.println("imageData: " + data);
+		FaceSearcher fs = new FaceSearcher();
+		String faceId = fs.matchFaceImage(ByteBuffer.wrap(bytes));
+		RequestDispatcher rd;
+
+		if (faceId != null) {
 			NameFinder nf = new NameFinder();
 			String name = nf.lookupName(faceId);
 
 			if (name != null) {
-				writer.println("Welcome, " + name);
-				response.setContentType("text/html");
-				writer.println("<!DOCTYPE html>" +
-						"<html>\n" +
-						"<head><title>Home</title></head>\n"+
-						"<body>\n" +
-						"<h1>Hello " + name + "</h1>\n" +
-						"</body>\n" + 
-						"</html>"
-						);
-			
-		    System.out.println("Welcome Message : JSP 1");
-		    request.setAttribute("Name", name);
-		    System.out.println("name" +name);
-		    //System.out.println("imageData: " + data);
-		    //RequestDispatcher rd = request.getRequestDispatcher("postLogin.jsp");
-		    //rd.forward(request, response);
-		   
-			}
-			else
-				writer.println("Authentication failed!");
-		}
-		else
-			writer.println("Authentication failed!");
-		
-		writer.close();
+				System.out.println("Welcome Message : JSP 1");
+				request.setAttribute("Name", name);
+				System.out.println("name" + name);
+				request.setAttribute("userName", name);
+				rd = request.getRequestDispatcher("home.jsp");
+				rd.forward(request, response);
+
+			} else
+				rd = request.getRequestDispatcher("authenticationFailure.jsp");
+			rd.forward(request, response);
+		} else
+			rd = request.getRequestDispatcher("authenticationFailure.jsp");
+		rd.forward(request, response);
+
 	}
 
 }

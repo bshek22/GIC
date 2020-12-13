@@ -18,7 +18,7 @@
 			</div>
 			<div class="udmi-area">
 				<div class="udmi-area-text">
-					<h5>Thank you for banking with us. <span>Please register your photo to help us serve you better.</span></h5>
+					<h5>Thank you for banking with us.</h5>
 					<h6>Say goodbye to using debit card at our ATMs!</h6>
 				</div>
 				<div class="login-main">

@@ -12,78 +12,41 @@ import com.amazonaws.services.rekognition.model.Image;
 import com.amazonaws.services.rekognition.model.SearchFacesByImageRequest;
 import com.amazonaws.services.rekognition.model.SearchFacesByImageResult;
 
-
 public class FaceSearcher {
 
 	public static final String collectionId = "face_recognition_collection";
 
-	/*public static void main(String[] args) throws Exception {
-
-		String photo="C:\\Users\\Krish\\eclipse-workspace\\HelloFuture\\WebContent\\input.jpg";
-
-        ByteBuffer imageBytes;
-        try (InputStream inputStream = new FileInputStream(new File(photo))) {
-            imageBytes = ByteBuffer.wrap(IOUtils.toByteArray(inputStream));
-        }
-
-        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
-
-		ObjectMapper objectMapper = new ObjectMapper();
-		// Search collection for faces similar to the largest face in the image.
-		SearchFacesByImageRequest searchFacesByImageRequest = new SearchFacesByImageRequest()
-				.withCollectionId(collectionId)
-				.withImage(new Image()
-						.withBytes(imageBytes))
-				.withFaceMatchThreshold(70F)
-				.withMaxFaces(2);
-
-		SearchFacesByImageResult searchFacesByImageResult = 
-				rekognitionClient.searchFacesByImage(searchFacesByImageRequest);
-
-		System.out.println("Faces matching largest face in image from" + photo);
-		List < FaceMatch > faceImageMatches = searchFacesByImageResult.getFaceMatches();
-		for (FaceMatch face: faceImageMatches) {
-			System.out.println(objectMapper.writerWithDefaultPrettyPrinter()
-					.writeValueAsString(face));
-			System.out.println();
-		}
-	}*/
-	
 	public String matchFaceImage(ByteBuffer imageBytes) {
 
-        //AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
-        AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().build();
-        SearchFacesByImageRequest searchFacesByImageRequest;
-        SearchFacesByImageResult searchFacesByImageResult = null;
+		// AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.defaultClient();
+		AmazonRekognition rekognitionClient = AmazonRekognitionClientBuilder.standard().build();
+		SearchFacesByImageRequest searchFacesByImageRequest;
+		SearchFacesByImageResult searchFacesByImageResult = null;
+		String faceId = null;
 
 		// Search collection for faces similar to the provided image
-        try {
-        	searchFacesByImageRequest = new SearchFacesByImageRequest()
-        			.withCollectionId(collectionId)
-        			.withImage(new Image()
-        					.withBytes(imageBytes))
-        			.withFaceMatchThreshold(90F);
+		try {
+			searchFacesByImageRequest = new SearchFacesByImageRequest().withCollectionId(collectionId)
+					.withImage(new Image().withBytes(imageBytes)).withFaceMatchThreshold(90F);
 
-        	searchFacesByImageResult = 
-        			rekognitionClient.searchFacesByImage(searchFacesByImageRequest);
-		
-        } catch (AmazonRekognitionException e) {
-            e.printStackTrace();
-        }
+			searchFacesByImageResult = rekognitionClient.searchFacesByImage(searchFacesByImageRequest);
 
-		List < FaceMatch > faceImageMatches = searchFacesByImageResult.getFaceMatches();
+		} catch (AmazonRekognitionException e) {
+			// e.printStackTrace();
+			return faceId;
+		}
+
+		List<FaceMatch> faceImageMatches = searchFacesByImageResult.getFaceMatches();
 		Float maxConfi = Float.parseFloat("0");
-		String faceId = null;
-		for (FaceMatch fm: faceImageMatches) {
+		for (FaceMatch fm : faceImageMatches) {
 			Face f = fm.getFace();
 			if (f.getConfidence() > maxConfi) {
 				maxConfi = f.getConfidence();
 				faceId = f.getFaceId();
-			}			
+			}
 		}
-		
+
 		return faceId;
 	}
-
 
 }

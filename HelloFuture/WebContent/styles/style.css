@@ -1,5 +1,4 @@
-<
-style>
+
 	/* Remove the navbar's default rounded borders and increase the bottom margin */
 	.navbar {
 	margin-bottom: 50px;
@@ -181,7 +180,7 @@ body{
     padding-bottom: 60px;
 }
 .rami-logo img{
-	max-width:100px;
+	max-width:200px;
 }
 .rami-form{
 	width: 100%;
@@ -520,4 +519,105 @@ body{
 .login-main-left input, .login-main-right input{
 	width: calc((100% / 2) - 5px) !important;
 	line-height: 30px;	
+}
+
+
+
+.reg-suc h2{
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 30px;
+    line-height: 36px;
+	font-weight: 600;
+    color: #ff2400;
+}
+.reg-suc h2 span{
+	display: block;
+	font-size: 18px;
+    line-height: 36px;
+    font-weight: 400;
+    color: #191919;
+}
+.reg-suc .btn-block {
+	margin-top: 30px;
+}
+.reg-suc .btn-block a{
+	font-family: 'Open Sans', sans-serif;
+	padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #1c87c9;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    text-transform: capitalize;
+}
+
+
+.audio-control-main h2{
+	text-align: center;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 30px;
+    line-height: 36px;
+	font-weight: 600;
+    color: #000000;
+}
+.audio-control-main p{
+	display: block;
+	font-size: 18px;
+    line-height: 36px;
+    font-weight: 400;
+    color: #191919;
+    padding-top: 10px;
+}
+.audio-control{
+	padding-top: 26px;
+    text-align: center;
+}
+.white-circle {
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 0 8px #d8dbe3;
+    border-radius: 100px;
+    height: 100px;
+    margin: 0 auto;
+    width: 100px;
+    position: relative;
+}
+
+.white-circle:hover {
+    box-shadow: 0 0 8px #007dbc;
+}
+.white-circle img{
+	position: absolute;
+	top: 50%;
+	left:50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+.white-circle canvas{
+	width: 100%;
+	height: 100%;
+}
+.audio-control-main .btn-block {
+	margin-top: 30px;
+}
+.audio-control-main .btn-block a{
+	font-family: 'Open Sans', sans-serif;
+	padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #1c87c9;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    text-transform: capitalize;
 }

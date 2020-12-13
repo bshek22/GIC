@@ -46,7 +46,8 @@
 			</div>
 			<div class="udmi-area">
 				<div class="udmi-area-text">
-					<h5>Thank you for banking with us. <span>Please register your photo to help us serve you better.</span></h5>
+					<h5>Thank you for banking with us. <span></span></h5>
+					<h6>Please register your photo to help us serve you better.</h6>
 					<h6>Say goodbye to using debit card at our ATMs!</h6>
 				</div>
 				
@@ -61,8 +62,8 @@
 							<input type="text" name="name" placeholder="email id" required />
 						</div>
 						<div class="udmi-item">
-							<label>Phone<span class="required">*</span></label>
-							<input type="text" id="phoneNumber" name="phoneNumber" placeholder="phone number" required />
+							<label>SSN<span class="required">*</span></label>
+							<input type="text" id="phoneNumber" name="phoneNumber" placeholder="ssn - last 4 digits" required />
 						</div>
 						<div class="udmi-item">
 							<label>Date of Birth<span class="required">*</span></label>
