@@ -11,6 +11,9 @@
     <title>Login</title>
   </head>
   <body>
+  <div>
+  <img src="MyBankLogo.png">
+ 
   	<h1>Welcome to the future!</h1>
     <div>    	
 	    <video id="videoID" autoplay style="border: 1px solid black;" width="320" height="240"></video>
@@ -24,7 +27,7 @@
 			<input type="hidden" name="imageData" id="imageID" />
 		</form>		
    	</div>
-   	
+   	</div>
 	<script type="text/javascript">
 		var video = document.getElementById('videoID');
 		var canvas = document.getElementById('canvasID');
