@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Register</title>
 <link rel="shortcut icon" href="image/logo.png" />
 <link rel="shortcut icon" href="MyBankLogo.png" />
 <link rel="preconnect" href="https://fonts.gstatic.com">

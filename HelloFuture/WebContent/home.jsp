@@ -6,7 +6,7 @@
 <head>
 <link rel="shortcut icon" href="image/logo.png" />
 <meta charset="UTF-8">
-<title>BankTeller</title>
+<title>ATM</title>
 <meta name="author" content="lafranch">
 <meta name="description" content="Lex Runtime example from the browser.">
 <meta name="keywords" content="Amazon Lex, SDK, Runtime, Browser, JavaScript">
