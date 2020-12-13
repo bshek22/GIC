@@ -21,7 +21,7 @@
 			</div>
 			<div class="udmi-area">
 				<div class="reg-suc">
-					<h2>Registration Successful</h2>
+					<h2>Registration Successful!</h2>
 					<div class="btn-block">
 						<a href="login.jsp">Login</a>
 					</div>
