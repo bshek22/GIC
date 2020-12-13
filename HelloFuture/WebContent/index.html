@@ -5,15 +5,10 @@
 <title>Express File Upload</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/style.css">
-
-
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <script type="text/javascript">
     function select()
@@ -31,46 +26,32 @@
    }
   </script>
 <body>
-
-	<div class="jumbotron">
-		<div class="container text-center">
-			<img src="MyBankLogo.png" alt="logo">
-			<h1>Home page</h1>
-		</div>
-	</div>
-
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header"></div>
-		</div>
-	</nav>
-	<div class="container text-center">
-		<div class="container text-center">
-			<div class="col-sm-12">
-				<div class="form">
-					<h1>Choose from below option!</h1>
+<div class="wrapper">
+	<div class="reg-auth-main">
+		<div class="reg-auth-main-inn">
+			<div class="rami-logo">
+				<img src="images/logo.png" alt="logo">
+			</div>
+			<div class="rami-form">
+				<h2>Choose from below option!</h2>
+				<div class="rami-form-inn">
 					<form action="" name="myform" method="POST" onsubmit="select()">
-						<div>
-							<tr>
-								<td><input type="radio" id="authenticate" name="authenticate"
-									value="authenticate">Authenticate</input></td>
-							</tr>
-							<tr>
-								<td><input type="radio" id="register" name="register"
-									value="register">Register</input></td>
-							</tr>
+						<div class="autreg-area">
+							<div class="autreg-item">
+								<input type="radio" id="authenticate" name="autreg" value="authenticate"><label for="authenticate">Authenticate</label>
+							</div>
+							<div class="autreg-item">							
+								<input type="radio" id="register" name="autreg" value="register"><label for="register">Register</label>
+							</div>
 						</div>
 						<div class="btn-block">
 							<button type="submit">Submit</button>
 						</div>
 					</form>
-
-
 				</div>
 			</div>
 		</div>
 	</div>
-
-
+</div>
 </body>
 </html>

@@ -14,6 +14,8 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.nio.ByteBuffer;
 import java.nio.file.Paths;
+import java.util.Base64;
+import java.io.ByteArrayInputStream;
 
 /**
  * Servlet implementation class UploadUserDetails
@@ -38,16 +40,31 @@ public class UploadUserDetailsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		String s3response;
+		String fileName="";
+		InputStream inputStream=null;
 		Part filePart = request.getPart("inputPhoto");
-		String fileName=getFileName(filePart);
+		String data = request.getParameter("imageData");
+		
+		byte[] bytes=null;
+		if(filePart!=null && filePart.getSize()>0) {
+		fileName=getFileName(filePart);
+		System.out.println("Inside if ");
 		//String fileName="test1.jpg";
-		InputStream inputStream = filePart.getInputStream();
+		inputStream = filePart.getInputStream();
+		}else if(data!=null) {
+			data = data.substring(data.indexOf(",") + 1);
+	        bytes = Base64.getDecoder().decode(data);
+	        inputStream = new ByteArrayInputStream(bytes);
+	        System.out.println("Inside elseif ");
+		}
 		String fullNameMetadata = request.getParameter("fname");
+		String phoneNumberMetadata = request.getParameter("phoneNumber");
 		System.out.println("File Name :"+fileName);
 		System.out.println("Full Name :"+fullNameMetadata);
+		//System.out.println("Data: "+data);
 		CaptureImage capImg= new CaptureImage();
 		PrintWriter writer = response.getWriter();
-		s3response=capImg.uploadUserDetails(inputStream, fullNameMetadata,fileName);
+		s3response=capImg.uploadUserDetails(inputStream, fullNameMetadata,phoneNumberMetadata+".jpg");
 		
 			//writer.println("Welcome, " + name);
 			response.setContentType("text/html");

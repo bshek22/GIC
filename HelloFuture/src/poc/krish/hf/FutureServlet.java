@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import javax.servlet.RequestDispatcher;
 
 import com.amazonaws.util.IOUtils;
 import java.util.Base64;
@@ -40,10 +41,10 @@ public class FutureServlet extends HttpServlet {
 	    //ByteBuffer imageBytes = ByteBuffer.wrap(IOUtils.toByteArray(inputStream));
 	    
 	    String data = request.getParameter("imageData");
-        //System.out.println("imageData: " + data);
+        System.out.println("imageData: " + data);
         data = data.substring(data.indexOf(",") + 1);
         byte[] bytes = Base64.getDecoder().decode(data);
-	    
+        System.out.println("imageData: " + data);
 		FaceSearcher fs = new FaceSearcher();
 		//String faceId = fs.matchFaceImage(imageBytes);
 		String faceId = fs.matchFaceImage(ByteBuffer.wrap(bytes));
@@ -57,7 +58,7 @@ public class FutureServlet extends HttpServlet {
 			String name = nf.lookupName(faceId);
 
 			if (name != null) {
-				//writer.println("Welcome, " + name);
+				writer.println("Welcome, " + name);
 				response.setContentType("text/html");
 				writer.println("<!DOCTYPE html>" +
 						"<html>\n" +
@@ -66,7 +67,15 @@ public class FutureServlet extends HttpServlet {
 						"<h1>Hello " + name + "</h1>\n" +
 						"</body>\n" + 
 						"</html>"
-						);			
+						);
+			
+		    System.out.println("Welcome Message : JSP 1");
+		    request.setAttribute("Name", name);
+		    System.out.println("name" +name);
+		    //System.out.println("imageData: " + data);
+		    //RequestDispatcher rd = request.getRequestDispatcher("postLogin.jsp");
+		    //rd.forward(request, response);
+		   
 			}
 			else
 				writer.println("Authentication failed!");
