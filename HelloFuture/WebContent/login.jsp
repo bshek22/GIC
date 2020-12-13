@@ -6,7 +6,7 @@
 <link rel="shortcut icon" href="MyBankLogo.png" />
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles/style.css">
+<link rel="stylesheet" href="./css/style.css">
 <title>Login</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
 	<div class="upload-details-main">
 		<div class="upload-details-main-inn">
 			<div class="udmi-logo">
-				<img src="images/logo.png" alt="logo">
+				<img src="image/logo.png" alt="logo">
 			</div>
 			<div class="udmi-area">
 				<div class="udmi-area-text">
@@ -41,36 +41,7 @@
 	</div>
 </div>
 
-<script type="text/javascript" src="videoFunctions.js">
-		/* var video = document.getElementById('videoID');
-		var canvas = document.getElementById('canvasID');
-		var context = canvas.getContext('2d');
-		function capture() {
-			context.drawImage(video, 0, 0, canvas.width, canvas.height);
-			document.getElementById('imageID').value = canvas.toDataURL("image/png");
-		};
-		
-		var stop = function() {
-			  var stream = video.srcObject;
-			  var tracks = stream.getTracks();
-			  for (var i = 0; i < tracks.length; i++) {
-			    var track = tracks[i];
-			    track.stop();
-			  }
-			  video.srcObject = null;
-		}
-		var start = function() {
-			var video = document.getElementById("videoID"),
-			 vendorUrl = window.URL || window.webkitURL;
-			if (navigator.mediaDevices.getUserMedia) {
-				navigator.mediaDevices.getUserMedia({ video: true })
-				.then(function (stream) {
-				  video.srcObject = stream;
-				}).catch(function (error) {
-				  console.log("Something went wrong!");
-				});
-			}
-		} */
+<script type="text/javascript" src="js/videoFunctions.js">
 	</script>
 </body>  
 </html>
